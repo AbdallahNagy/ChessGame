@@ -1,4 +1,4 @@
-
+// this function is for drawing the chess board 
 function draw_board(){
 
     let my_board = document.getElementById('board');
@@ -30,6 +30,7 @@ function draw_board(){
     }
 }
 
+// this function is for putting the positions of the squares ex: a4, c5 etc..
 function squares_id(){
     let my_board = document.getElementsByClassName('square');
 
@@ -49,6 +50,7 @@ function squares_id(){
     }
 }
 
+// putting the pieces in its default positions.
 function spotted_pieces() {
     let ele = document.getElementsByClassName("square");
     for (let x = 0; x < 64; x++) {
@@ -104,6 +106,7 @@ function spotted_pieces() {
     }
 }
 
+// to move the pieces from their current pos to the new one.
 function moving_pieces() {
     //getting pieces ids
     let images = document.querySelectorAll('img');
@@ -128,32 +131,6 @@ function moving_pieces() {
     });
     target_square.appendChild(target_piece);
 }
-
-// function moving_pieces() {
-
-//     //getting pieces ids
-//     let images = document.querySelectorAll('img');
-//     let target_piece = null;
-//     images.forEach(img => {
-//         img.addEventListener('click', function handle_move () {
-//             target_piece = img;
-//             console.log(img.parentElement) //for debugging
-//         });
-//     });
-
-//     //getting squares ids
-//     let squares = document.querySelectorAll('.square');
-//     let target_square = null;
-//     squares.forEach(square => {
-//         square.addEventListener('click', function handle_id() {
-//             if (!square.firstChild) {
-//                 target_square = square;
-//                 console.log(square) //for debugging
-//             }
-//         });
-//     });
-//     target_square.appendChild(target_piece);
-// }
 
 //Driver Code.
 draw_board();
