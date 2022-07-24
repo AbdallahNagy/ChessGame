@@ -1,4 +1,4 @@
-// this function is for drawing the chess board 
+// drawing the chess board 
 function draw_board(){
 
     let my_board = document.getElementById('board');
@@ -23,14 +23,14 @@ function draw_board(){
                 square.className = 'light_square square';
             }
         }
-        
+        //every two rows the squares repeat themselfes
         if (r == 16) {
             r = 0;
         }
     }
 }
 
-// this function is for putting the positions of the squares ex: a4, c5 etc..
+// putting the positions of the squares ex: a4, c5 etc..
 function squares_id(){
     let my_board = document.getElementsByClassName('square');
 
@@ -126,10 +126,11 @@ function moving_pieces() {
             if (!square.firstChild) {
                 target_square = square;
                 console.log(square) //for debugging
+                target_square.appendChild(target_piece);
             }
         });
     });
-    target_square.appendChild(target_piece);
+    
 }
 
 //Driver Code.
