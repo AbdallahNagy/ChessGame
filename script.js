@@ -123,12 +123,12 @@ function moving_pieces() {
     let target_square = null;
     squares.forEach(square => {
         square.addEventListener('click', function handle_id() {
-            if (square.firstChild)
-                console.log(square.firstChild)
+            // if (square.firstChild)
+            //     console.log(square.firstChild)
 
             target_square = square;             
             target_square.appendChild(target_piece);
-            
+            console.log(target_square)
         });
     });
     
