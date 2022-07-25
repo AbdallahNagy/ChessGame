@@ -71,10 +71,10 @@ function spotted_pieces() {
             img_ele.src = '/pieces/Chess_rdt60.png';
         }
         if (ele[x].id == 'b8' || ele[x].id == 'g8') {
-            img_ele.src = '/pieces/Chess_bdt60.png';
+            img_ele.src = '/pieces/Chess_ndt60.png';
         }
         if (ele[x].id == 'c8' || ele[x].id == 'f8') {
-            img_ele.src = '/pieces/Chess_ndt60.png';
+            img_ele.src = '/pieces/Chess_bdt60.png';
         }
         if (ele[x].id == 'd8') {
             img_ele.src = '/pieces/Chess_qdt60.png';
@@ -88,10 +88,10 @@ function spotted_pieces() {
             img_ele.src = '/pieces/Chess_rlt60.png';
         }
         if (ele[x].id == 'b1' || ele[x].id == 'g1') {
-            img_ele.src = '/pieces/Chess_blt60.png';
+            img_ele.src = '/pieces/Chess_nlt60.png';
         }
         if (ele[x].id == 'c1' || ele[x].id == 'f1') {
-            img_ele.src = '/pieces/Chess_nlt60.png';
+            img_ele.src = '/pieces/Chess_blt60.png';
         }
         if (ele[x].id == 'd1') {
             img_ele.src = '/pieces/Chess_qlt60.png';
@@ -114,7 +114,7 @@ function moving_pieces() {
     images.forEach(img => {
         img.addEventListener('click', function handle_move () {
             target_piece = img;
-            console.log(img) //for debugging
+            
         });
     });
 
@@ -123,11 +123,12 @@ function moving_pieces() {
     let target_square = null;
     squares.forEach(square => {
         square.addEventListener('click', function handle_id() {
-            if (!square.firstChild) {
-                target_square = square;
-                console.log(square) //for debugging
-                target_square.appendChild(target_piece);
-            }
+            if (square.firstChild)
+                console.log(square.firstChild)
+
+            target_square = square;             
+            target_square.appendChild(target_piece);
+            
         });
     });
     
