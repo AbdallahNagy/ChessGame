@@ -60,44 +60,44 @@ function spotted_pieces() {
 
         //placing dark pawns
         if (ele[x].id.includes('7')) {
-            img_ele.src = '/pieces/Chess_pdt60.png';
+            img_ele.src = './pieces/Chess_pdt60.png';
         }
         //placing light pawns
         if (ele[x].id.includes('2')) {
-            img_ele.src = '/pieces/Chess_plt60.png';
+            img_ele.src = './pieces/Chess_plt60.png';
         }
         //placing other dark pieces
         if (ele[x].id == 'a8' || ele[x].id =='h8') {
-            img_ele.src = '/pieces/Chess_rdt60.png';
+            img_ele.src = './pieces/Chess_rdt60.png';
         }
         if (ele[x].id == 'b8' || ele[x].id == 'g8') {
-            img_ele.src = '/pieces/Chess_ndt60.png';
+            img_ele.src = './pieces/Chess_ndt60.png';
         }
         if (ele[x].id == 'c8' || ele[x].id == 'f8') {
-            img_ele.src = '/pieces/Chess_bdt60.png';
+            img_ele.src = './pieces/Chess_bdt60.png';
         }
         if (ele[x].id == 'd8') {
-            img_ele.src = '/pieces/Chess_qdt60.png';
+            img_ele.src = './pieces/Chess_qdt60.png';
         }
         if (ele[x].id == 'e8') {
-            img_ele.src = '/pieces/Chess_kdt60.png';
+            img_ele.src = './pieces/Chess_kdt60.png';
         }
 
         //placing other light pieces
         if (ele[x].id == 'a1' || ele[x].id =='h1') {
-            img_ele.src = '/pieces/Chess_rlt60.png';
+            img_ele.src = './pieces/Chess_rlt60.png';
         }
         if (ele[x].id == 'b1' || ele[x].id == 'g1') {
-            img_ele.src = '/pieces/Chess_nlt60.png';
+            img_ele.src = './pieces/Chess_nlt60.png';
         }
         if (ele[x].id == 'c1' || ele[x].id == 'f1') {
-            img_ele.src = '/pieces/Chess_blt60.png';
+            img_ele.src = './pieces/Chess_blt60.png';
         }
         if (ele[x].id == 'd1') {
-            img_ele.src = '/pieces/Chess_qlt60.png';
+            img_ele.src = './pieces/Chess_qlt60.png';
         }
         if (ele[x].id == 'e1') {
-            img_ele.src = '/pieces/Chess_klt60.png';
+            img_ele.src = './pieces/Chess_klt60.png';
         }
 
         if (!img_ele.src) {
@@ -110,17 +110,16 @@ function spotted_pieces() {
 function moving_pieces() {
     //getting pieces ids
     let images = document.querySelectorAll('img');
-    let target_piece = null;
+    let target_piece;
     images.forEach(img => {
-        img.addEventListener('click', function handle_move () {
+        img.addEventListener('click', function(){
             target_piece = img;
-            
         });
     });
 
     //getting squares ids
     let squares = document.querySelectorAll('.square');
-    let target_square = null;
+    let target_square;
     squares.forEach(square => {
         square.addEventListener('click', function handle_id() {
             // if (square.firstChild)
