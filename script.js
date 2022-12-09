@@ -36,7 +36,7 @@ function squares_id(){
 
     let id_chars = 'abcdefgh';
     let id_nums = 8;
-    var r = 0;
+    let r = 0;
     for (let x = 0; x < 64; x++) {
         r += 1;
         
@@ -46,61 +46,60 @@ function squares_id(){
             r = 0;
             id_nums--;
         }
-        console.log();
+
     }
 }
 
 // putting the pieces in its default positions.
-function spotted_pieces() {
+function set_pieces() {
     let ele = document.getElementsByClassName("square");
     for (let x = 0; x < 64; x++) {
 
         let img_ele = document.createElement('img');
-        let = ele[x].appendChild(img_ele);
+        ele[x].appendChild(img_ele);
 
         //placing dark pawns
         if (ele[x].id.includes('7')) {
             img_ele.src = './pieces/Chess_pdt60.png';
         }
         //placing light pawns
-        if (ele[x].id.includes('2')) {
+        else if (ele[x].id.includes('2')) {
             img_ele.src = './pieces/Chess_plt60.png';
         }
         //placing other dark pieces
-        if (ele[x].id == 'a8' || ele[x].id =='h8') {
+        else if (ele[x].id == 'a8' || ele[x].id =='h8') {
             img_ele.src = './pieces/Chess_rdt60.png';
         }
-        if (ele[x].id == 'b8' || ele[x].id == 'g8') {
+        else if (ele[x].id == 'b8' || ele[x].id == 'g8') {
             img_ele.src = './pieces/Chess_ndt60.png';
         }
-        if (ele[x].id == 'c8' || ele[x].id == 'f8') {
+        else if (ele[x].id == 'c8' || ele[x].id == 'f8') {
             img_ele.src = './pieces/Chess_bdt60.png';
         }
-        if (ele[x].id == 'd8') {
+        else if (ele[x].id == 'd8') {
             img_ele.src = './pieces/Chess_qdt60.png';
         }
-        if (ele[x].id == 'e8') {
+        else if (ele[x].id == 'e8') {
             img_ele.src = './pieces/Chess_kdt60.png';
         }
 
         //placing other light pieces
-        if (ele[x].id == 'a1' || ele[x].id =='h1') {
+        else if (ele[x].id == 'a1' || ele[x].id =='h1') {
             img_ele.src = './pieces/Chess_rlt60.png';
         }
-        if (ele[x].id == 'b1' || ele[x].id == 'g1') {
+        else if (ele[x].id == 'b1' || ele[x].id == 'g1') {
             img_ele.src = './pieces/Chess_nlt60.png';
         }
-        if (ele[x].id == 'c1' || ele[x].id == 'f1') {
+        else if (ele[x].id == 'c1' || ele[x].id == 'f1') {
             img_ele.src = './pieces/Chess_blt60.png';
         }
-        if (ele[x].id == 'd1') {
+        else if (ele[x].id == 'd1') {
             img_ele.src = './pieces/Chess_qlt60.png';
         }
-        if (ele[x].id == 'e1') {
+        else if (ele[x].id == 'e1') {
             img_ele.src = './pieces/Chess_klt60.png';
         }
-
-        if (!img_ele.src) {
+        else {
             img_ele.remove();
         }
     }
@@ -112,7 +111,7 @@ function moving_pieces() {
     let images = document.querySelectorAll('img');
     let target_piece;
     images.forEach(img => {
-        img.addEventListener('click', function(){
+        img.addEventListener('click', () => {
             target_piece = img;
         });
     });
@@ -121,7 +120,7 @@ function moving_pieces() {
     let squares = document.querySelectorAll('.square');
     let target_square;
     squares.forEach(square => {
-        square.addEventListener('click', function handle_id() {
+        square.addEventListener('click', () => {
             // if (square.firstChild)
             //     console.log(square.firstChild)
 
@@ -136,5 +135,5 @@ function moving_pieces() {
 //Driver Code.
 draw_board();
 squares_id();
-spotted_pieces();
+set_pieces();
 moving_pieces();
