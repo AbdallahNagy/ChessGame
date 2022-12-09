@@ -23,6 +23,7 @@ function draw_board(){
                 square.className = 'light_square square';
             }
         }
+        square.setAttribute("draggable", "true");
         //every two rows the squares repeat themselfes
         if (r == 16) {
             r = 0;
@@ -107,26 +108,35 @@ function set_pieces() {
 
 // to move the pieces from their current pos to the new one.
 function moving_pieces() {
-    //getting pieces ids
-    let images = document.querySelectorAll('img');
-    let target_piece;
-    images.forEach(img => {
-        img.addEventListener('click', () => {
-            target_piece = img;
+
+    let pieces = document.querySelectorAll('img');
+    let squares = document.querySelectorAll('.square');
+
+    squares.forEach(sqr => {
+        sqr.addEventListener("dragover", e => {
+            e.preventDefault();
         });
     });
 
-    //getting squares ids
-    let squares = document.querySelectorAll('.square');
-    let target_square;
-    squares.forEach(square => {
-        square.addEventListener('click', () => {
-            // if (square.firstChild)
-            //     console.log(square.firstChild)
+    squares.forEach(sqr => {
+        sqr.addEventListener("drop", e => {
+            let sqr_id = e.dataTransfer.getData("sqr_id");
+            let targetedSqr = document.getElementById(sqr_id);
 
-            target_square = square;             
-            target_square.appendChild(target_piece);
-            console.log(target_square)
+            if(targetedSqr !== sqr && targetedSqr){
+
+                if(sqr.firstElementChild){
+                    sqr.removeChild(sqr.firstElementChild);
+                }    
+
+                sqr.append(targetedSqr.firstElementChild);
+            }
+        });
+    });
+
+    pieces.forEach(piece => {
+        piece.addEventListener("dragstart", e => {
+            e.dataTransfer.setData("sqr_id", piece.parentNode.id);
         });
     });
     
