@@ -138,7 +138,7 @@ function moving_pieces() {
         piece.addEventListener("dragstart", e => {
             e.dataTransfer.setData("sqr_id", piece.parentNode.id);
         });
-    });
+    }); 
     
 }
 
